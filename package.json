@@ -7,9 +7,14 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "format": "prettier -w --plugin-search-dir=. src",
     "astro": "astro"
   },
   "dependencies": {
     "astro": "^2.4.1"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.8",
+    "prettier-plugin-astro": "^0.8.1"
   }
 }
