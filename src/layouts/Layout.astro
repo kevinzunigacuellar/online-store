@@ -1,5 +1,6 @@
 ---
 import Bag from "../icons/Bag.astro";
+import "../styles/reset.css";
 
 export interface Props {
   title: string;
@@ -19,27 +20,27 @@ const { title } = Astro.props;
   </head>
   <body>
     <header>
-      <span>Stardust</span>
+      <span>StarStore</span>
       <span><Bag /></span>
     </header>
     <slot />
   </body>
 </html>
 <style>
-  html {
-    font-family: system-ui, sans-serif;
-    background-color: #fff;
-    padding: 0 1rem;
-  }
   header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-block: 3rem;
+    padding-inline: 1rem;
   }
   header span {
     font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
       "Lucida Sans", Arial, sans-serif;
     font-size: x-large;
   }
+	body {
+		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		margin: 0 2rem;
+	}
 </style>

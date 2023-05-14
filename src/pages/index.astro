@@ -1,24 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
-interface ProductType {
-  id: number;
-  title: string;
-  price: number;
-  category: string;
-  description: string;
-  image: string;
-}
-const products = (await fetch("https://fakestoreapi.com/products").then((res) =>
-  res.json()
-)) as ProductType[];
+import products from "../data/products.json";
+
 ---
 
 <Layout title="Welcome to Astro.">
   <ul>
     {
       products.map((product) => (
-        <li>
           <Card
             name={product.title}
             price={product.price}
@@ -27,8 +17,34 @@ const products = (await fetch("https://fakestoreapi.com/products").then((res) =>
               alt: product.title,
             }}
           />
-        </li>
       ))
     }
   </ul>
 </Layout>
+
+<style>
+	ul {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		grid-gap: 2rem;
+		list-style-type: none;
+	}
+
+	@media (max-width: 1024px) {
+		ul {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+	}
+
+	@media (max-width: 768px) {
+		ul {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
+	@media (max-width: 480px) {
+		ul {
+			grid-template-columns: repeat(1, minmax(0, 1fr));
+		}
+	}
+</style>

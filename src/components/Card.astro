@@ -14,5 +14,23 @@ const { name, price, image } = Astro.props;
 <li>
   <img src={image.url} alt={image.alt} />
   <h2>{name}</h2>
-  <p>${price} USD</p>
+  <p><span>{price}</span> USD</p>
 </li>
+<style>
+  img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 0.5rem;
+    border-radius: 0.5rem;
+  }
+  h2 {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem;
+  }
+</style>
