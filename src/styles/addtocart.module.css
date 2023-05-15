@@ -1,3 +1,11 @@
+.add_button {
+  background-color: #facc15;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 .container {
   display: inline-flex;
   gap: 0.75rem;

@@ -1,17 +1,18 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import products from "../../data/products.json";
-import { Counter } from "../../components/Counter";
+import { AddToCart } from "../../components/AddToCart";
 
-const { id } = Astro.params;
+export function getStaticPaths() {
+  const pages = products.map((product) => ({
+    params: { id: product.id },
+    props: { product },
+  }));
 
-if (!id) {
-  return Astro.redirect("/404");
+  return pages;
 }
-const product = products.find((product) => product.id === parseInt(id));
-if (!product) {
-  return Astro.redirect("/404");
-}
+
+const { product } = Astro.props;
 ---
 
 <Layout title={product.title}>
@@ -20,8 +21,7 @@ if (!product) {
     <div>
       <h1>{product.title}</h1>
       <p>$ {product.price.toFixed(2)}</p>
-      <Counter client:load />
-      <button>Add to cart</button>
+      <AddToCart client:load id={product.id} />
       <p>{product.description}</p>
     </div>
   </article>
@@ -49,13 +49,6 @@ if (!product) {
   }
   article p {
     line-height: 1.625;
-  }
-  button {
-    background-color: #facc15;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
   }
 
   @media (min-width: 768px) {

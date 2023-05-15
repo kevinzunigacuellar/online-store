@@ -21,7 +21,7 @@ const { title } = Astro.props;
   <body>
     <header>
       <a href="/">Store</a>
-      <span><Bag /></span>
+      <a href="/cart"><Bag /></a>
     </header>
     <slot />
   </body>
@@ -32,6 +32,7 @@ const { title } = Astro.props;
     justify-content: space-between;
     align-items: center;
     padding-block: 3rem;
+    margin-bottom: 1.5rem;
   }
   header a {
     font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
