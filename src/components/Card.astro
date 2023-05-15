@@ -1,20 +1,21 @@
 ---
 export interface Props {
+  id: number;
   name: string;
   price: number;
   image: {
-    url: string;
+    src: string;
     alt: string;
   };
 }
 
-const { name, price, image } = Astro.props;
+const { name, price, image, id } = Astro.props;
 ---
 
 <li>
-  <img src={image.url} alt={image.alt} />
-  <h2>{name}</h2>
-  <p><span>{price}</span> USD</p>
+  <img src={image.src} alt={image.alt} />
+  <a href={`/products/${id}`}>{name}</a>
+  <p><span>{price.toFixed(2)}</span> USD</p>
 </li>
 <style>
   img {
@@ -31,6 +32,11 @@ const { name, price, image } = Astro.props;
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    padding: 1rem;
+    position: relative;
+  }
+  li a::before {
+    position: absolute;
+    content: "";
+    inset: 0;
   }
 </style>

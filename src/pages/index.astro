@@ -9,10 +9,11 @@ import products from "../data/products.json";
     {
       products.map((product) => (
         <Card
+          id={product.id}
           name={product.title}
           price={product.price}
           image={{
-            url: product.image,
+            src: product.image,
             alt: product.title,
           }}
         />
@@ -25,7 +26,7 @@ import products from "../data/products.json";
   ul {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    grid-gap: 2rem;
+    grid-gap: 3rem;
     list-style-type: none;
   }
 

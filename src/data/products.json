@@ -1,74 +1,98 @@
 [
   {
+    "id": 1,
     "title": "Cap Ebbets Corduroy",
     "description": "Made by the well-respected and renowned athletic garments company Ebbets Field Flannels. Hand-sewn from genuine wool baseball cloth. This cap is built to last a lifetime.",
     "price": 48,
+    "stock": 10,
     "image": "https://cdn.shopify.com/s/files/1/0612/2477/9832/products/Varsity-C_Cap-Corduroy-Yellow_Front_1080x_6fe179e1-b3f3-452b-a2d4-ee0c1d70e7c9.webp?v=1676406573&width=533"
   },
   {
+    "id": 2,
     "title": "Cap Ebbets Corduroy",
     "description": "Made by the well-respected and renowned athletic garments company Ebbets Field Flannels. Hand-sewn from genuine wool baseball cloth. This cap is built to last a lifetime.",
     "price": 48,
+    "stock": 5,
     "image": "https://cdn.shopify.com/s/files/1/0612/2477/9832/products/Varsity-C_Cap-Corduroy-Pink_Front_1080x_20b9871f-01f8-41b3-8483-11c37e116607.webp?v=1676406569&width=533"
   },
   {
+    "id": 3,
     "title": "Cap Wool",
     "description": "Made by the well-respected and renowned athletic garments company Ebbets Field Flannels. Hand-sewn from genuine wool baseball cloth. This cap is built to last a lifetime.",
     "price": 48,
+    "stock": 0,
     "image": "https://cdn.shopify.com/s/files/1/0612/2477/9832/products/Ebbets-C_Cap_Camel_Front-Angle_1080x_8d228c8c-2958-43f0-bd30-7258cb3df3fc.webp?v=1676406497&width=533"
   },
   {
+    "id": 4,
     "title": "Cap Wool",
     "description": "Made by the well-respected and renowned athletic garments company Ebbets Field Flannels. Hand-sewn from genuine wool baseball cloth. This cap is built to last a lifetime.",
     "price": 48,
+    "stock": 15,
     "image": "https://cdn.shopify.com/s/files/1/0612/2477/9832/products/Varsity-C_Cap-Corduroy-Black_Front_1080x_5df513f9-92c3-4707-b0d0-6e4515667a23.webp?v=1676407572&width=533"
   },
   {
+    "id": 5,
     "title": "Coffee & Jazz Rap",
     "description": "Coffee & Jazz Rap. A Coursework vibe. A classic. A staple. A must-h",
     "price": 36,
+    "stock": 11,
     "image": "https://cdn.shopify.com/s/files/1/0612/2477/9832/products/DSC07686_Coffee-Jazz-Rap_Black_Shopify_1080x_3c0ebed9-cef5-46d5-ac64-083c2714af73.webp?v=1676406430&width=533"
   },
   {
+    "id": 6,
     "title": "Course Work Tee",
     "description": "Course Work Tee. A Coursework vibe. A classic. A staple. A must-have.",
     "price": 36,
+    "stock": 2,
     "image": "https://cdn.shopify.com/s/files/1/0612/2477/9832/products/Required-Reading-Tee_Black_Front_1080x_a96593fd-47bc-4e8a-bea2-726a8283a9b0.webp?v=1676407121&width=533"
   },
   {
+    "id": 7,
     "title": "Creative Label Tee",
     "description": "Creative Label Tee. A Coursework vibe. A classic. A staple. A must-have.",
     "price": 48,
+    "stock": 7,
     "image": "https://cdn.shopify.com/s/files/1/0612/2477/9832/products/Creative-Label-Tee_White-Front_1080x_1a0b4a40-d2c5-406d-96dc-a70aa8c0af8b.webp?v=1676406143&width=533"
   },
   {
+    "id": 8,
     "title": "Never Not Working Tee",
     "description": "Never Not Working Tee. A Coursework vibe. A classic. A staple. A must-have.",
     "price": 36,
+    "stock": 12,
     "image": "https://cdn.shopify.com/s/files/1/0612/2477/9832/products/Never-Not-Working-Tee_Black_Front_1080x_c522e4e4-ca72-49d9-91ac-2948db699111.webp?v=1676488037&width=533"
   },
   {
+    "id": 9,
     "title": "Sweater Icon Crewneck",
     "description": "Sweater Icon Crewneck. A Coursework vibe. A classic. A staple. A must-have.",
     "price": 72,
+    "stock": 3,
     "image": "https://cdn.shopify.com/s/files/1/0612/2477/9832/products/Icon-Crewneck_Black_Front_1080x_1cdc163c-6381-4f73-9a1b-cc0339c613d7.webp?v=1676406648&width=533"
   },
   {
+    "id": 10,
     "title": "Sweater Icon Crewneck",
     "description": "Sweater Icon Crewneck. A Coursework vibe. A classic. A staple. A must-have.",
     "price": 72,
+    "stock": 21,
     "image": "https://cdn.shopify.com/s/files/1/0612/2477/9832/products/Icon-Crewneck_Green_Front_1080x_4058cbb6-2001-4ee7-84f9-0d886d2a8634.webp?v=1676407383&width=533"
   },
   {
+    "id": 11,
     "title": "Sweater Icon Crewneck",
     "description": "Sweater Icon Crewneck. A Coursework vibe. A classic. A staple. A must-have.",
     "price": 72,
+    "stock": 6,
     "image": "https://cdn.shopify.com/s/files/1/0612/2477/9832/products/Icon-Crewneck_Navy_Front_1080x_8f70c5ff-e4aa-4965-b281-85d2c6a29a92.webp?v=1676406804&width=533"
   },
   {
+    "id": 12,
     "title": "Sweater Icon Crewneck",
     "description": "Sweater Icon Crewneck. A Coursework vibe. A classic. A staple. A must-have.",
     "price": 72,
+    "stock": 12,
     "image": "https://cdn.shopify.com/s/files/1/0612/2477/9832/products/Icon-Crewneck_Olive_Front_1080x_67c3724f-ca2e-4c08-a938-1c813546e3fd.webp?v=1676406946&width=533"
   }
 ]
