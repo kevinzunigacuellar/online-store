@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import products from "../../data/products.json";
+import { Counter } from "../../components/Counter";
 
 const { id } = Astro.params;
 
@@ -19,7 +20,7 @@ if (!product) {
     <div>
       <h1>{product.title}</h1>
       <p>$ {product.price.toFixed(2)}</p>
-      <p>Counter</p>
+      <Counter client:load />
       <button>Add to cart</button>
       <p>{product.description}</p>
     </div>
@@ -41,7 +42,6 @@ if (!product) {
     flex-direction: column;
     gap: 1rem;
     width: 100%;
-    max-width: 500px;
   }
   article h1 {
     font-size: 1.75rem;
