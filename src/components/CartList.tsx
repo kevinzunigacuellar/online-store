@@ -1,6 +1,6 @@
 import styles from "../styles/cartlist.module.css";
 import { createLocalStore } from "../scripts/store";
-import { For, createMemo, createSignal } from "solid-js";
+import { For, createMemo, createSignal, Show } from "solid-js";
 import type { CartProduct } from "../env.d.ts";
 import { Counter } from "./Counter";
 
@@ -13,6 +13,7 @@ const {
 } = createLocalStore();
 export function CartList() {
   return (
+    <Show when={cart.length > 0} fallback={<p class={styles.empty_cart}>Your cart is empty</p>}>
     <div class={styles.cards_container}>
       <p class={styles.table_header}>
         <span>Subtotal</span>
@@ -23,6 +24,7 @@ export function CartList() {
         ${getCartTotal().toFixed(2)}
       </p>
     </div>
+    </Show>
   );
 }
 
