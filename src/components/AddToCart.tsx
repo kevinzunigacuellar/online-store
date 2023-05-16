@@ -1,30 +1,17 @@
 import styles from "../styles/addtocart.module.css";
 import { createSignal } from "solid-js";
+import { createLocalStore } from "../scripts/store";
+import type { ProductProps } from "../env.d.ts";
 
 const [count, setCount] = createSignal(1);
+const { addItemToCart } = createLocalStore();
 
-interface CartItem {
-  id: number;
-  quantity: number;
-}
-
-function AddToCartButton({ id }: { id: number }) {
-  function addToCart(id: number) {
-    const cart = JSON.parse(
-      window.localStorage.getItem("cart") || "[]"
-    ) as CartItem[];
-    const itemIsInCart = cart.some((item) => item.id === id);
-    if (itemIsInCart) {
-      const item = cart.find((item) => item.id === id) as CartItem;
-      item.quantity += count();
-    } else {
-      cart.push({ id, quantity: count() });
-    }
-    window.localStorage.setItem("cart", JSON.stringify(cart));
-  }
-
+function AddToCartButton({ product }: { product: ProductProps }) {
   return (
-    <button class={styles.add_button} onclick={() => addToCart(id)}>
+    <button
+      class={styles.add_button}
+      onclick={() => addItemToCart({ ...product, quantity: count() })}
+    >
       Add to cart
     </button>
   );
@@ -79,11 +66,11 @@ function Counter() {
   );
 }
 
-export function AddToCart({ id }) {
+export function AddToCart({ product }: { product: ProductProps }) {
   return (
     <>
       <Counter />
-      <AddToCartButton id={id} />
+      <AddToCartButton product={product} />
     </>
   );
 }

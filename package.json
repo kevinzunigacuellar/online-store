@@ -11,10 +11,9 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/netlify": "^2.2.2",
     "@astrojs/solid-js": "^2.1.1",
-    "astro": "^2.4.1",
-    "solid-js": "^1.4.3"
+    "astro": "^2.4.5",
+    "solid-js": "^1.7.5"
   },
   "devDependencies": {
     "prettier": "^2.8.8",

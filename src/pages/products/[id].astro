@@ -21,7 +21,15 @@ const { product } = Astro.props;
     <div>
       <h1>{product.title}</h1>
       <p>$ {product.price.toFixed(2)}</p>
-      <AddToCart client:load id={product.id} />
+      <AddToCart
+        client:load
+        product={{
+          id: product.id,
+          name: product.title,
+          price: product.price,
+          image: product.image,
+        }}
+      />
       <p>{product.description}</p>
     </div>
   </article>
