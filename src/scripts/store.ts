@@ -40,7 +40,7 @@ export function createLocalStore() {
   };
 
   /* increase quantity to item method */
-  const increaseQuantityToItem = (itemId: string) => {
+  const increaseQuantityOfItem = (itemId: string) => {
     setCart(
       (product) => product.id === itemId,
       produce((product) => (product.quantity = product.quantity + 1))
@@ -54,11 +54,19 @@ export function createLocalStore() {
       produce((product) => (product.quantity = product.quantity - 1))
     );
   };
+
+  /* get cart total method */
+  const getCartTotal = () => {
+    return cart.reduce((acc, item) => {
+      return acc + item.price * item.quantity;
+    }, 0);
+  };
   return {
     cart,
     addItemToCart,
     removeItemFromCart,
     decreaseQuantityFromItem,
-    increaseQuantityToItem,
+    increaseQuantityOfItem,
+    getCartTotal,
   };
 }

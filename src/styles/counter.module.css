@@ -1,0 +1,26 @@
+.container {
+  display: inline-flex;
+  gap: 0.75rem;
+  border: 1px solid #000;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  align-items: center;
+  font-size: 1.25rem;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.counter_text {
+  min-width: 1.5rem;
+  text-align: center;
+}
+
+.counter__button {
+  border: none;
+  background-color: #fff;
+  padding: 0.5rem 0.5rem;
+}
+
+.svg_icon {
+  width: 1rem;
+  height: 1rem;
+}
