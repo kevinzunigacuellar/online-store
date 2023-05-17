@@ -5,7 +5,9 @@ import products from "../data/products.json";
 ---
 
 <Layout title="Store">
-  <ul>
+  <ul
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
+  >
     {
       products.map((product) => (
         <Card
@@ -21,30 +23,3 @@ import products from "../data/products.json";
     }
   </ul>
 </Layout>
-
-<style>
-  ul {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    grid-gap: 3rem;
-    list-style-type: none;
-  }
-
-  @media (max-width: 1024px) {
-    ul {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-  }
-
-  @media (max-width: 768px) {
-    ul {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  @media (max-width: 480px) {
-    ul {
-      grid-template-columns: repeat(1, minmax(0, 1fr));
-    }
-  }
-</style>

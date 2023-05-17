@@ -1,8 +1,7 @@
 ---
 import Bag from "../icons/Bag.astro";
-import "../styles/reset.css";
 
-export interface Props {
+interface Props {
   title: string;
 }
 
@@ -18,31 +17,11 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body>
-    <header>
-      <a href="/">Store</a>
+  <body class="mx-auto max-w-5xl py-12 px-4 sm:px-6">
+    <header class="flex justify-between items-center mb-12 text-3xl">
+      <a href="/" class="font-bold font-serif">Store</a>
       <a href="/cart"><Bag /></a>
     </header>
     <slot />
   </body>
 </html>
-<style>
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-block: 3rem;
-    margin-bottom: 1.5rem;
-  }
-  header a {
-    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-      "Lucida Sans", Arial, sans-serif;
-    font-size: x-large;
-  }
-  body {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    padding: 2rem;
-    margin: 0 auto;
-    max-width: 1024px;
-  }
-</style>

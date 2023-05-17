@@ -4,55 +4,9 @@ import { CartList } from "../components/CartList";
 ---
 
 <Layout title="Shopping cart">
-  <div class="heading">
-    <h1>Your cart</h1>
-    <a href="/">Continue shopping</a>
+  <div class="flex justify-between items-baseline">
+    <h1 class="text-2xl font-semibold">Your cart</h1>
+    <a href="/" class="underline text-lg text-right">Continue shopping</a>
   </div>
   <CartList client:only="solid" />
 </Layout>
-<style>
-  .heading {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-  }
-  .heading h1 {
-    font-size: 2rem;
-  }
-  .heading a {
-    text-decoration: underline;
-    text-align: right;
-  }
-  .cart_table {
-    border-collapse: collapse;
-    margin-top: 3rem;
-    font-size: 0.9em;
-    width: 100%;
-  }
-
-  .cart_table thead tr {
-    border-bottom: 1px solid #e2e8f0;
-    letter-spacing: 0.05em;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    text-align: left;
-  }
-
-  .cart_table th:nth-child(2) {
-    display: none;
-  }
-
-  .cart_table th {
-    padding-block: 1.25rem;
-  }
-
-  @media (min-width: 640px) {
-    .cart_table th:nth-child(2) {
-      display: block;
-    }
-  }
-
-  /* .cart_table tbody tr {
-    border-bottom: 1px solid gray;
-  } */
-</style>

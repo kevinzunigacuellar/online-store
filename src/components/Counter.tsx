@@ -1,4 +1,3 @@
-import styles from "../styles/counter.module.css";
 import type { Accessor } from "solid-js";
 
 interface CounterProps {
@@ -14,19 +13,19 @@ export function Counter({
 }: CounterProps) {
   return (
     <div>
-      <div class={styles.container}>
+      <div class="border border-gray-900 inline-flex rounded-md items-center overflow-hidden">
         <button
-          class={styles.counter__button}
+          class="p-2 border-r border-gray-900 disabled:text-gray-300"
           disabled={count() <= 1}
           onClick={decreaseCounter}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class={styles.svg_icon}
             fill="none"
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
+            class="h-5 w-auto"
           >
             <path
               stroke-linecap="round"
@@ -35,15 +34,15 @@ export function Counter({
             ></path>
           </svg>
         </button>
-        <p class={styles.counter_text}>{count()}</p>
-        <button class={styles.counter__button} onClick={increaseCounter}>
+        <p class="font-mono w-10 text-center">{count()}</p>
+        <button class="p-2 border-l border-gray-900" onClick={increaseCounter}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             stroke-width="1.5"
+            class="h-5 w-auto"
             stroke="currentColor"
-            class={styles.svg_icon}
           >
             <path
               stroke-linecap="round"

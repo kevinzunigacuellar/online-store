@@ -1,20 +1,26 @@
-import styles from "../styles/addtocart.module.css";
 import { Accessor, createSignal } from "solid-js";
 import { Counter } from "./Counter";
 import { createLocalStore } from "../scripts/store";
 import type { ProductProps } from "../env.d.ts";
 
 const { addItemToCart } = createLocalStore();
+const INITIAL_COUNT = 1;
 
 interface AddToCartButtonProps {
   product: ProductProps;
   count: Accessor<number>;
 }
+
 function AddToCartButton({ product, count }: AddToCartButtonProps) {
+
+  const handleClick = (product: ProductProps) => {
+    addItemToCart({ ...product, quantity: count() });
+    alert(`Added ${product.name} to cart!`);
+  };
   return (
     <button
-      class={styles.add_button}
-      onclick={() => addItemToCart({ ...product, quantity: count() })}
+      class="rounded-md bg-yellow-400 py-2"
+      onclick={() => handleClick(product)}
     >
       Add to cart
     </button>
@@ -22,7 +28,7 @@ function AddToCartButton({ product, count }: AddToCartButtonProps) {
 }
 
 export function AddToCart({ product }: { product: ProductProps }) {
-  const [count, setCount] = createSignal(1);
+  const [count, setCount] = createSignal(INITIAL_COUNT);
 
   const increaseCounter = () => {
     setCount((c) => c + 1);
