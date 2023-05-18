@@ -12,7 +12,6 @@ interface AddToCartButtonProps {
 }
 
 function AddToCartButton({ product, count }: AddToCartButtonProps) {
-
   const handleClick = (product: ProductProps) => {
     addItemToCart({ ...product, quantity: count() });
     alert(`Added ${product.name} to cart!`);
