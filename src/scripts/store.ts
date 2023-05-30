@@ -1,72 +1,60 @@
 import { createStore, produce } from "solid-js/store";
 import { createEffect } from "solid-js";
 import type { CartProduct } from "../env.d.ts";
+
 const LOCAL_STORAGE_KEY = "cart";
+const stored = localStorage.getItem(LOCAL_STORAGE_KEY);
+export const [cart, setCart] = createStore<CartProduct[]>(
+  stored ? JSON.parse(stored) : []
+);
 
-export function createLocalStore() {
-  /* load cart from local storage */
-  const stored = localStorage.getItem(LOCAL_STORAGE_KEY);
-  const [cart, setCart] = createStore<CartProduct[]>(
-    stored ? JSON.parse(stored) : []
-  );
+createEffect(() =>
+  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(cart))
+);
 
-  /* subscribe cart changes to localstore */
-  createEffect(() =>
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(cart))
-  );
-
-  /* add to cart method */
-  const addItemToCart = (item: CartProduct) => {
-    const existing = cart.some((i) => i.id === item.id);
-    if (existing) {
-      setCart(
-        (product) => product.id === item.id,
-        produce(
-          (product) => (product.quantity = product.quantity + item.quantity)
-        )
-      );
-    } else {
-      setCart(
-        produce((product) => {
-          product.push(item);
-        })
-      );
-    }
-  };
-  /* remove from cart method */
-  const removeItemFromCart = (itemId: string) => {
-    const newCart = cart.filter((product) => product.id !== itemId);
-    setCart(newCart);
-  };
-
-  /* increase quantity to item method */
-  const increaseQuantityOfItem = (itemId: string) => {
+export function addItemToCart(item: CartProduct) {
+  const existing = cart.some((i) => i.id === item.id);
+  if (existing) {
     setCart(
-      (product) => product.id === itemId,
-      produce((product) => (product.quantity = product.quantity + 1))
+      (product) => product.id === item.id,
+      produce(
+        (product) => (product.quantity = product.quantity + item.quantity)
+      )
     );
-  };
-
-  /* decrease quantity from item method */
-  const decreaseQuantityFromItem = (itemId: string) => {
+  } else {
     setCart(
-      (product) => product.id === itemId,
-      produce((product) => (product.quantity = product.quantity - 1))
+      produce((product) => {
+        product.push(item);
+      })
     );
-  };
+  }
+}
 
-  /* get cart total method */
-  const getCartTotal = () => {
-    return cart.reduce((acc, item) => {
-      return acc + item.price * item.quantity;
-    }, 0);
-  };
-  return {
-    cart,
-    addItemToCart,
-    removeItemFromCart,
-    decreaseQuantityFromItem,
-    increaseQuantityOfItem,
-    getCartTotal,
-  };
+export function removeItemFromCart(itemId: string) {
+  const newCart = cart.filter((product) => product.id !== itemId);
+  setCart(newCart);
+}
+
+export function getItemSubTotal(itemId: string) {
+  const item = cart.find((item) => item.id === itemId)!;
+  return item.price * item.quantity;
+}
+
+export function getCartTotal() {
+  return cart.reduce((acc, item) => {
+    return acc + item.price * item.quantity;
+  }, 0);
+}
+
+export function updateCartItemQuantity(itemId: string, quantity: number) {
+  setCart(
+    (product) => product.id === itemId,
+    produce((product) => (product.quantity = quantity))
+  );
+}
+
+export function getCartNumberOfItems() {
+  return cart.reduce((acc, item) => {
+    return acc + item.quantity;
+  }, 0);
 }

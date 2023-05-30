@@ -1,15 +1,14 @@
-import { createLocalStore } from "../scripts/store";
+import {
+  cart,
+  removeItemFromCart,
+  updateCartItemQuantity,
+  getCartTotal,
+  getItemSubTotal,
+} from "../scripts/store";
 import { Counter } from "./Counter";
-import { For, createMemo, createSignal, Show } from "solid-js";
+import { For, createSignal, Show, createEffect } from "solid-js";
 import type { CartProduct } from "../env.d.ts";
 
-const {
-  cart,
-  increaseQuantityOfItem,
-  decreaseQuantityFromItem,
-  removeItemFromCart,
-  getCartTotal,
-} = createLocalStore();
 export function CartList() {
   return (
     <Show
@@ -30,16 +29,16 @@ export function CartList() {
 function Card({ name, price, quantity, image, id }: CartProduct) {
   const [count, setCount] = createSignal(quantity);
 
-  const subtotal = createMemo(() => count() * price);
+  createEffect(() => {
+    updateCartItemQuantity(id, count());
+  });
 
   const increaseCounter = () => {
     setCount((c) => c + 1);
-    increaseQuantityOfItem(id);
   };
 
   const decreaseCounter = () => {
     setCount((c) => c - 1);
-    decreaseQuantityFromItem(id);
   };
 
   return (
@@ -77,7 +76,7 @@ function Card({ name, price, quantity, image, id }: CartProduct) {
           </div>
         </div>
       </div>
-      <p class="flex-e">${subtotal().toFixed(2)}</p>
+      <p>${getItemSubTotal(id).toFixed(2)}</p>
     </article>
   );
 }

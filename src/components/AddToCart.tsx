@@ -1,9 +1,8 @@
 import { Accessor, createSignal } from "solid-js";
 import { Counter } from "./Counter";
-import { createLocalStore } from "../scripts/store";
+import { addItemToCart } from "../scripts/store";
 import type { ProductProps } from "../env.d.ts";
 
-const { addItemToCart } = createLocalStore();
 const INITIAL_COUNT = 1;
 
 interface AddToCartButtonProps {
@@ -14,7 +13,6 @@ interface AddToCartButtonProps {
 function AddToCartButton({ product, count }: AddToCartButtonProps) {
   const handleClick = (product: ProductProps) => {
     addItemToCart({ ...product, quantity: count() });
-    alert(`Added ${product.name} to cart!`);
   };
   return (
     <button
